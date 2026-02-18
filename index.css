@@ -1,12 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 
+   Le projet utilise le CDN Tailwind dans index.html pour plus de stabilité.
+   On garde ce fichier pour les styles globaux personnalisés sans directives @tailwind 
+   pour éviter les erreurs de build "no matching @tailwind base directive".
+*/
 
-@layer base {
-  body {
-    @apply bg-slate-50 font-sans text-slate-900;
-    -webkit-tap-highlight-color: transparent;
-  }
+body {
+  background-color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
