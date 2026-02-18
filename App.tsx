@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import Calendar from './components/Calendar';
 import DayModal from './components/DayModal';
@@ -28,7 +27,6 @@ const App: React.FC = () => {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'info' | 'error'; action?: () => void; actionLabel?: string } | null>(null);
   
-  // Détection de partage par URL au chargement
   useEffect(() => {
     const hash = window.location.hash;
     if (hash && hash.startsWith('#data=')) {
@@ -143,7 +141,6 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50 text-slate-900 pb-32 font-sans selection:bg-indigo-100">
       <header className="bg-white border-b border-gray-200 sticky top-0 z-40 px-4 py-3 backdrop-blur-md bg-white/80 shadow-sm">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          
           <div className="flex items-center gap-3 shrink-0 mr-auto sm:mr-0">
             <div className="bg-indigo-600 p-2 rounded-xl text-white shadow-lg shadow-indigo-200">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,8 +194,6 @@ const App: React.FC = () => {
               )}
             </div>
           </div>
-
-          <div className="hidden lg:block w-[150px]"></div>
         </div>
       </header>
 
@@ -242,7 +237,14 @@ const App: React.FC = () => {
       )}
 
       {selectedDate && isModalOpen && (
-        <DayModal isOpen={isModalOpen} onClose={() => { setIsModalOpen(false); if (!rangeEnd) setSelectedDate(null); }} onSave={handleSaveDay} date={selectedDate} endDate={rangeEnd || undefined} currentSchedule={monthData[selectedDate.toISOString().split('T')[0]]} />
+        <DayModal 
+          isOpen={isModalOpen} 
+          onClose={() => { setIsModalOpen(false); if (!rangeEnd) setSelectedDate(null); }} 
+          onSave={handleSaveDay} 
+          date={selectedDate} 
+          endDate={rangeEnd || undefined} 
+          currentSchedule={monthData[selectedDate.toISOString().split('T')[0]]} 
+        />
       )}
 
       <ShareModal 

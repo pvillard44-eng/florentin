@@ -10,9 +10,54 @@
     <meta name="apple-mobile-web-app-title" content="Florentin">
     <meta name="theme-color" content="#4f46e5">
     
+    <!-- Tailwind CDN : Garantit l'affichage exact que vous aimiez -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '400px',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        @layer base {
+          body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+          }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #e2e8f0;
+          border-radius: 10px;
+        }
+        @keyframes progress {
+          from { width: 100%; }
+          to { width: 0%; }
+        }
+        .animate-progress {
+          animation: progress linear forwards;
+        }
+        button, div[onClick] {
+          touch-action: manipulation;
+        }
+    </style>
 <script type="importmap">
 {
   "imports": {
