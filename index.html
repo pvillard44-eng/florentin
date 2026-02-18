@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="Florentin">
     <meta name="theme-color" content="#4f46e5">
     
-    <!-- Tailwind CDN : Garantit l'affichage exact -->
+    <!-- Tailwind CDN : Solution la plus fiable pour le rendu immédiat -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,9 +31,11 @@
         }
     </script>
     <style type="text/css">
+        /* Styles CSS standards sans directives @layer pour éviter les erreurs PostCSS au build */
         body {
           font-family: 'Plus Jakarta Sans', sans-serif !important;
           background-color: #f8fafc;
+          color: #0f172a;
           -webkit-tap-highlight-color: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar {
